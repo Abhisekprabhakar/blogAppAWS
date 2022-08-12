@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5d4017982f.js" crossorigin="anonymous"></script>
+    <title>BlogPostApp</title>
+    <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="/pages.css">
+  </head>
+    <body>
+        <nav class="navbar fixed-top navbar-light nav-header " id="nav">
+            <a href="/#page-top" class="nav-text">BlogPost App</a> 
+            <a href="/#blogs" class="nav-btn right-align"> Back To List</a>
+          </nav>
+        <div class="blog-page">
+        
+        <div class="blog-container">
+            <div class="row">
+                <div class="col-md-8">
+            <div class="title">    <%=blog.title%> </div>
+            </div>
+            <div class="col-md-4">
+                <p class="right-align">
+           
+           
+            <form id="Delete" action="/blogs/delete/<%= blog._id%>?_method=DELETE" class="right-align" method="POST">
+                <a href='/blogs/edit/<%=blog._id%>' class="btn1">Edit</a>
+                    <button type="submit" class="btn2">Delete</button>
+                </form>
+            </p></div>
+        </div>
+        <hr/>
+        <div class="content">
+            <%-blog.content%>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/5d4017982f.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>BlogPostApp</title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <div class="landing" id="page-top">
+      <section>
+        <div class="header-content">
+          <h2>BlogPost App</h2>
+          <p>Read and share new perspectives on just about any topic.</p>
+          <a href="/blogs/add" class="btn">Create New</a>
+        </div>
+      </section>
+
+      <a href="#blogs" class="sd"
+        ><p>
+          <i
+            class="fas fa-angle-double-up"
+            style="font-size: 20px; margin-left: 35px"
+          ></i>
+        </p>
+        Read Blogs</a
+      >
+    </div>
+    <div class="blogs" id="blogs">
+      <nav class="navbar navbar-light nav-header" id="nav">
+        <a href="#page-top" class="nav-text">BlogPost App</a>
+        <a href="/blogs/add" class="nav-btn right-align">Create New</a>
+      </nav>
+      <div class="blogs-container">
+        <div class="blog-container-title">
+          DISCOVER MORE OF WHAT MATTERS TO YOU
+        </div>
+        <hr />
+        <div class="blog-list-container container">
+          <% if(blogs.length==0){%>
+          <div class="blog-category">No Blogs Available</div>
+          <a href="/blogs/add">Add New Blog</a> <%}else{ blogs.map((blog)=>{
+          %><a href="/blogs/<%=blog._id%>">
+            <div class="blog-card">
+              <div class="row">
+                <div class="col-md-8">
+                  <span class="blog-title"> <%=blog.title%></span>
+                </div>
+                <div class="col-md-4">
+                  <span class="blog-category right-align"
+                    >/<%=blog.category%></span
+                  >
+                </div>
+              </div>
+            </div> </a
+          ><% })}%>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Node js Project for nagarro by Abhishek Prabhakar</div>
+  </body>
+  <script>
+    window.onscroll = function () {
+      myFunction();
+    };
+
+    var header = document.getElementById("nav");
+
+    // Get the offset position of the navbar
+    var sticky = header.offsetTop;
+
+    // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+  </script>
+</html>

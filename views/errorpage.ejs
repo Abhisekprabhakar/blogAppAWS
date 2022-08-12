@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="/pages.css">
+    <title>BlogPostApp</title>
+  </head> 
+    <body>
+      <nav class="navbar fixed-top navbar-light nav-header " id="nav">
+        <a href="/#page-top" class="nav-text">BlogPost App</a> 
+        
+      </nav>
+      <div class="form-blog-page">
+       <div class="title"> Oops !! some Error occured</div>
+       <hr/>
+
+
+<div class="error-container" >
+   
+   <%if (typeof(validationerror)!='undefined'){%>
+      <ul>
+      <%
+      if(validationerror.errors['title']!=null){
+      %> 
+      <li><%= validationerror.errors['title'].message%></li>
+      <%
+   }%>
+   <% if(validationerror.errors['category']!=null){
+      %> <li><%= validationerror.errors['category'].message%></li>
+      <%
+   }%>
+
+   <% if(validationerror.errors['content']!=null){
+      %> <li><%= validationerror.errors['content'].message%></li>
+      <%
+   }%></ul> <%}%>
+
+   <%if(typeof(notfound)!='undefined'){
+      %>
+      <p>Blog doesn't exist for given id</p>
+      <%
+   }%>
+
+   <a href="/" class="btn2">Home</a>
+    </div>
+    
+  </div>
+    </body>
+  
+    
+</html>
+
